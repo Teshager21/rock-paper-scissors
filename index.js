@@ -8,13 +8,11 @@ Math.floor(Math.random()*3);
 }
 
 const getHumanChoice=()=>{
-    return choice=prompt("Input:0 for paper\n      1 for Scissor\n      2 for Rock\nOne, Two, three go:");
-    
+    choice=prompt("Type one of the options below:\n -Paper\n -Scissor or  \n -Rock,\n One Two, three go:").trim().toLocaleLowerCase();
+    console.log(choice);
 }
 
-const playRound=()=>{
 
-}
 
 getHumanChoice();
 getComputerChoice();
