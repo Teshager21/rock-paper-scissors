@@ -25,14 +25,24 @@ const playGame=()=>{
     for(i=0;i<5;i++){
         playRound(getHumanChoice(),getComputerChoice());
     }
+    //DOM MANIPULATION
+    const result=document.createElement('div');
+    const container= document.querySelector('.container');
     if(humanScore===computerScore){
         console.log("Its a tie");
+        result.textContent="Its a tie";
+       
 
     }else if(humanScore>computerScore){
         console.log('You Won the Game!!!',`${humanScore} to ${computerScore}`)
+        result.textContent='You Won the Game!!!',`${humanScore} to ${computerScore}`;
     }else {
-        console.log("OOPs, You Lost",`${humanScore} to ${computerScore}`)
+        console.log("OOPs, You Lost",`${humanScore} to ${computerScore}`);
+        result.textContent="OOPs, You Lost",`${humanScore} to ${computerScore}`;
     }
+
+    container.appendChild(result);
+    
 }
 
 const playRound=(humanChoice,computerChoice)=>{
