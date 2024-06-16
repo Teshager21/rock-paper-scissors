@@ -41,10 +41,10 @@ const playGame=()=>{
 
     }else if(humanScore>computerScore){
         console.log('You Won the Game!!!',`${humanScore} to ${computerScore}`)
-        result.textContent('You Won the Game!!!',`${humanScore} to ${computerScore}`);
+        result.textContent='You Won the Game!!!',`${humanScore} to ${computerScore}`;
     }else {
         console.log("Oops, You Lost",`${humanScore} to ${computerScore}`);
-        result.textContent="OOPs, You Lost",`${humanScore} to ${computerScore}`;
+        result.textContent="Oops, You Lost",`${humanScore} to ${computerScore}`;
         
     }
 
@@ -71,11 +71,11 @@ const playRound=(humanChoice,computerChoice)=>{
     if (winner===human){
         humanScore++;
         console.log("Dude, You Won this round! ",`${choices[human]} beats ${choices[computer]}`)
-        result.textContent=(`Dude, You Won this round! ${choices[human]} beats ${choices[computer]}`)
+        result.textContent=`Dude, You Won this round! ${choices[human]} beats ${choices[computer]}`
     } 
     if(winner===computer) {
         console.log(`Dude, You Lost this round! ${choices[computer]} beats ${choices[human]}`)
-        result.textContent=(`Dude, You Lost this round! ${choices[computer]} beats ${choices[human]}`)
+        result.textContent=`Dude, You Lost this round! ${choices[computer]} beats ${choices[human]}`;
         computerScore++;
      
     }
