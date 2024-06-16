@@ -13,19 +13,19 @@ const getHumanChoice=()=>{
     return choices.indexOf(choice);
 }
 
+const playGame=()=>{
+    for(i=0;i<5;i++){
+        playRound(getHumanChoice(),getComputerChoice());
+    }
+    console.log(`score board: human= ${humanScore} computer= ${computerScore}`);
+}
+
 const playRound=(humanChoice,computerChoice)=>{
+    
     const human= parseInt(humanChoice);
     const computer=parseInt(computerChoice);
     const diff= Math.abs(human-computer);
     let winner;
-    // [1,1]= if they are equal ====>it is a tie
-    // [0,1],[1,2]==>computerwon----diff of -1
-    // [1,0],[1,2]=>humanwon---------diff of +1
-    //----when the abs(diff)===1 , the greater wins
-    // [0,2]=>humanwon=-------------diff of -2
-    // [2,0]=>computerwon------------diff +2
-    //-----when the abs(diff)===2, the lower wins
-
     //WHEN THERE IS A TIE
     if(human===computer){
         console.log("Its a tie");
@@ -38,16 +38,19 @@ const playRound=(humanChoice,computerChoice)=>{
     console.log(`index of paper is : ${choices.indexOf('scissor')}`);
     console.log(human ,computer);    
     if (winner===human){
+        humanScore++;
         console.log("Dude, You Won",`${choices[human]} beats ${choices[computer]}`)
     } 
     if(winner===computer) {
         console.log("Dude, You Lost",`${choices[computer]} beats ${choices[human]}`)
+        computerScore++;
      
     }
      
 
 }
-playRound(getHumanChoice(),getComputerChoice());
 
-getHumanChoice();
-getComputerChoice();
+
+playGame();
+
+
