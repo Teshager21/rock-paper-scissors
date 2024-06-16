@@ -8,16 +8,31 @@ return Math.floor(Math.random()*3);
 }
 
 const getHumanChoice=()=>{
-
+   
     choice=prompt("Type one of the options below:\n -Paper\n -Scissor or  \n -Rock,\n One Two, three go:").trim().toLocaleLowerCase();
-    return choices.indexOf(choice);
+    console.log(choices.indexOf(choice));
+    if (    choices.indexOf(choice)!==-1){
+        return choices.indexOf(choice);
+    }
+   else {
+    console.log('Please type your choice correctly');
+    console.log(choices.indexOf(choice));
+     getHumanChoice();
+   } 
 }
 
 const playGame=()=>{
     for(i=0;i<5;i++){
         playRound(getHumanChoice(),getComputerChoice());
     }
-    console.log(`score board: human= ${humanScore} computer= ${computerScore}`);
+    if(humanScore===computerScore){
+        console.log("Its a tie");
+
+    }else if(humanScore>computerScore){
+        console.log('You Won the Game!!!',`${humanScore} to ${computerScore}`)
+    }else {
+        console.log("OOPs, You Lost",`${humanScore} to ${computerScore}`)
+    }
 }
 
 const playRound=(humanChoice,computerChoice)=>{
@@ -28,21 +43,17 @@ const playRound=(humanChoice,computerChoice)=>{
     let winner;
     //WHEN THERE IS A TIE
     if(human===computer){
-        console.log("Its a tie");
+        console.log("This round  a tie");
     }
     if(diff===1) winner = Math.max(human,computer);
     if(diff==2) winner=Math.min(human,computer);
-
-    
-
-    console.log(`index of paper is : ${choices.indexOf('scissor')}`);
-    console.log(human ,computer);    
+   
     if (winner===human){
         humanScore++;
-        console.log("Dude, You Won",`${choices[human]} beats ${choices[computer]}`)
+        console.log("Dude, You Won this round! ",`${choices[human]} beats ${choices[computer]}`)
     } 
     if(winner===computer) {
-        console.log("Dude, You Lost",`${choices[computer]} beats ${choices[human]}`)
+        console.log("Dude, You Lost this round! ",`${choices[computer]} beats ${choices[human]}`)
         computerScore++;
      
     }
