@@ -15,6 +15,9 @@ const getHumanChoice=()=>{
 }
 
 const playRound=(humanChoice,computerChoice)=>{
+    const human= parseInt(humanChoice);
+    const computer=parseInt(computerChoice);
+    const diff= Math.abs(human-computer);
     // [1,1]= if they are equal ====>it is a tie
     // [0,1],[1,2]==>computerwon----diff of -1
     // [1,0],[1,2]=>humanwon---------diff of +1
@@ -22,10 +25,17 @@ const playRound=(humanChoice,computerChoice)=>{
     // [0,2]=>humanwon=-------------diff of -2
     // [2,0]=>computerwon------------diff +2
     //-----when the abs(diff)===2, the lower wins
+
+    //WHEN THERE IS A TIE
+    if(human===computer){
+        console.log("Its a tie");
+    }
+
+    
     
 
     console.log(`index of paper is : ${choices.indexOf('scissor')}`);
-    console.log(humanChoice ,computerChoice);    
+    console.log(human ,computer);    
      
 
 }
