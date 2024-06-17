@@ -1,40 +1,36 @@
 console.log("Hello Welcome to this game!");
 
 let humanScore=0,computerScore=0;
+let choice;
+// DOM MAN
 const container= document.querySelector('.container');
 let result=document.createElement('div');
+//EVENTS HANDLING
+
+
 result.classList.add('card');
 const choices=['paper','scissor','rock'];
+
 const getComputerChoice=()=>{
 return Math.floor(Math.random()*3);
-
-
-
 }
 
-const getHumanChoice=()=>{
-   
-    choice=prompt("Type one of the options below:\n -Paper\n -Scissor or  \n -Rock,\n One Two, three go:").trim().toLocaleLowerCase();
-    console.log(choices.indexOf(choice));
-    if (    choices.indexOf(choice)!==-1){
-        return choices.indexOf(choice);
+const getHumanChoice=(e)=>{
+    if( e.target.nodeName==='BUTTON'){
+        choice=choices.indexOf(e.target.textContent.toLowerCase());
+       playGame();
     }
-   else {
-    console.log('Please type your choice correctly');
-    console.log(choices.indexOf(choice));
-     getHumanChoice();
-   } 
 }
+
+let choicesBtns= document.querySelector('.choices')
+choicesBtns.addEventListener('click',e=>{ getHumanChoice(e)});
 
 const playGame=()=>{
       //DOM MANIPULATION
-     
       
-    for(i=0;i<5;i++){
-        playRound(getHumanChoice(),getComputerChoice());
-    }
+        playRound(choice,getComputerChoice());
   
-    if(humanScore===computerScore){
+    if(humanScore===computerScore && humanScore!==0){
         console.log("Its a tie");
         result.textContent="Its a tie";
        
@@ -51,7 +47,7 @@ const playGame=()=>{
    
     container.appendChild(result);
   
-    
+   
 }
 
 const playRound=(humanChoice,computerChoice)=>{
@@ -84,6 +80,6 @@ const playRound=(humanChoice,computerChoice)=>{
 }
 
 
-playGame();
+// playGame();
 
 

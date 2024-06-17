@@ -10,7 +10,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">Rock-Paper-Scissors</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -44,10 +44,21 @@
           </div>
         </div>
       </nav>
-    <h1>Rock-Paper-Scissors</h1>
   
 <section class="container">
-<div class="container">
+    <div id="prompt" class="container">
+        <p>Choose one of the option below: </p>
+    </div>
+    <div id="display" class="container d-flex gap-3 my-3">
+        <div class="card">
+            <div class="card-title bg-secondary text-white">Your Choice</div>
+            <div class="card-text ">Paper</div>
+        </div>
+        <div class="card ">
+            <div class="card-title bg-secondary text-white">Computers Choice</div>
+        </div>
+    </div>
+<div class="container my-3 choices">
     <button class="btn btn-primary" id="paper">Paper</button>
     <button class="btn btn-primary" id="scissor">Scissor</button>
     <button class="btn btn-primary" id="rock">Rock</button></div>
