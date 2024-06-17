@@ -2,9 +2,11 @@ console.log("Hello Welcome to this game!");
 let roundCounter=0;
     let humanScore=0,computerScore=0;
 let choice;
+let score=document.querySelector('#score');
 // DOM MAN
 const container= document.querySelector('.container');
 let result=document.createElement('div');
+let gameResult=document.createElement('div');
 //EVENTS HANDLING
 
 //trigger rerender
@@ -15,6 +17,7 @@ const rerender=()=>{
 }
 
 result.classList.add('bg-success','card', 'text-white','p-3'); 
+gameResult.classList.add('p-2','shadow','text-secondary')
 const choices=['paper','scissor','rock'];
 
 const getComputerChoice=()=>{
@@ -39,20 +42,23 @@ const getHumanChoice=(e)=>{
 
 
 const playGame=()=>{
-
         playRound(choice,getComputerChoice());
+        score.textContent=`${humanScore} | ${computerScore}`;
         container.appendChild(result); 
-        if(roundCounter==5){
+        container.prepend(gameResult);
+        gameResult.classList.add('d-none','py-2') ;
+        if(roundCounter===5){
             console.log(roundCounter,' ',humanScore,' ' ,computerScore); 
             
             let diff= humanScore-computerScore;
             console.log(humanScore);       
-        if(diff==0) result.textContent=("THIS GAME IS A TIE")
-        if(diff>0) result.textContent=("YOU WON THE GAME!")
-        if(diff<0) result.textContent=("OOPS YOU LOST!")
+        if(diff==0) gameResult.textContent=("THIS GAME IS A TIE")
+        if(diff>0) gameResult.textContent=("YOU WON THE GAME!")
+        if(diff<0) gameResult.textContent=("OOPS YOU LOST!")
             humanScore=0;
             computerScore=0;
             roundCounter=0; 
+            gameResult.classList.remove('d-none') ;
         }
 
       }
