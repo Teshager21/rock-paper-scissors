@@ -14,7 +14,7 @@ const rerender=()=>{
     container.style.display='block';
 }
 
-result.classList.add('card');
+result.classList.add('bg-success','card', 'text-white','p-3'); 
 const choices=['paper','scissor','rock'];
 
 const getComputerChoice=()=>{
@@ -50,28 +50,33 @@ const playRound=(humanChoice,computerChoice)=>{
     if(human===computer){
         console.log("This round  a tie");
         result.textContent="This round  a tie";
+         result.classList.remove('bg-success');
+         result.classList.remove('bg-danger');
+        result.classList.add('bg-secondary'); 
     }
+       
+     
     if(diff===1) winner = Math.max(human,computer);
     if(diff==2) winner=Math.min(human,computer);
    
     if (winner===human){
         humanScore++;
-        console.log("Dude, You Won this round! ",`${choices[human]} beats ${choices[computer]}`)
-      
-
-        result.textContent=`Dude, You Won this round! ${choices[human]} beats ${choices[computer]}`
+        console.log("Dude, You Won this round! ",`${choices[human]} beats ${choices[computer]}`);
+        result.textContent=`Dude, You Won this round! ${choices[human]} beats ${choices[computer]}`;
+        result.classList.remove('bg-danger');
+        result.classList.remove('bg-secondary');
+        result.classList.add('bg-success'); 
     } 
     if(winner===computer) {
-        console.log(`Dude, You Lost this round! ${choices[computer]} beats ${choices[human]}`)
+        console.log(`Dude, You Lost this round! ${choices[computer]} beats ${choices[human]}`);
         result.textContent=`Dude, You Lost this round! ${choices[computer]} beats ${choices[human]}`;
+        result.classList.add('bg-danger'); 
+        result.classList.remove('bg-secondary');
+        result.classList.remove('bg-success');
         computerScore++;
-     
     }
     container.appendChild(result);   
 
 }
-
-
-// playGame();
 
 
