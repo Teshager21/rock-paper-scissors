@@ -1,6 +1,6 @@
 console.log("Hello Welcome to this game!");
-
-let humanScore=0,computerScore=0;
+let roundCounter=0;
+    let humanScore=0,computerScore=0;
 let choice;
 // DOM MAN
 const container= document.querySelector('.container');
@@ -20,6 +20,10 @@ const choices=['paper','scissor','rock'];
 const getComputerChoice=()=>{
 return Math.floor(Math.random()*3);
 }
+let choicesBtns= document.querySelector('.choices')
+
+
+    choicesBtns.addEventListener('click',e=>{ getHumanChoice(e)});
 
 const getHumanChoice=(e)=>{
     if( e.target.nodeName==='BUTTON'){
@@ -27,16 +31,25 @@ const getHumanChoice=(e)=>{
         choice=choices.indexOf(e.target.textContent.toLowerCase());
        playGame();
        
+       
     }
+
 }
 
-let choicesBtns= document.querySelector('.choices')
-choicesBtns.addEventListener('click',e=>{ getHumanChoice(e)});
+
 
 const playGame=()=>{
-    playRound(choice,getComputerChoice());
-    container.appendChild(result);    
-}
+
+        playRound(choice,getComputerChoice());
+        container.appendChild(result); 
+        if(roundCounter==5){
+            console.log(roundCounter,' ',humanScore,' ' ,computerScore); 
+            humanScore=0;
+            computerScore=0;
+            roundCounter=0;  
+        }
+
+      }
 
 const playRound=(humanChoice,computerChoice)=>{
     
@@ -75,8 +88,11 @@ const playRound=(humanChoice,computerChoice)=>{
         result.classList.remove('bg-success');
         computerScore++;
     }
-    container.appendChild(result);   
+    container.appendChild(result);  
+    roundCounter++;
+   
 
 }
+
 
 
