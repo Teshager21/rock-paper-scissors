@@ -46,7 +46,7 @@ const playGame=()=>{
         score.textContent=`${humanScore} | ${computerScore}`;
         container.appendChild(result); 
         container.prepend(gameResult);
-        gameResult.classList.add('d-none','py-2') ;
+        gameResult.classList.add('d-none','my-4','border','border-primary','rounded-1') ;
         if(roundCounter===5){
             console.log(roundCounter,' ',humanScore,' ' ,computerScore); 
             
