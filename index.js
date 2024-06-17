@@ -7,6 +7,12 @@ const container= document.querySelector('.container');
 let result=document.createElement('div');
 //EVENTS HANDLING
 
+//trigger rerender
+
+const rerender=()=>{
+    container.style.display='none';
+    container.style.display='block';
+}
 
 result.classList.add('card');
 const choices=['paper','scissor','rock'];
@@ -27,7 +33,7 @@ choicesBtns.addEventListener('click',e=>{ getHumanChoice(e)});
 
 const playGame=()=>{
       //DOM MANIPULATION
-      
+      rerender(); 
         playRound(choice,getComputerChoice());
   
     if(humanScore===computerScore && humanScore!==0){
