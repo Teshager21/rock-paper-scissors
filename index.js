@@ -7,8 +7,30 @@ let score=document.querySelector('#score');
 const container= document.querySelector('.container');
 let result=document.createElement('div');
 let gameResult=document.createElement('div');
-//EVENTS HANDLING
 
+let scissor= document.createElement('img')
+let paper= document.createElement('img')
+let rock= document.createElement('img')
+let paper1= document.createElement('img')
+let rock1= document.createElement('img')
+let scissor1= document.createElement('img')
+paper.srcset="https://www.wikihow.com/images/thumb/4/49/Play-Rock%2C-Paper%2C-Scissors-Step-7-Version-4.jpg/v4-728px-Play-Rock%2C-Paper%2C-Scissors-Step-7-Version-4.jpg.webp";
+rock.srcset="https://www.wikihow.com/images/thumb/1/1e/Play-Rock%2C-Paper%2C-Scissors-Step-6-Version-4.jpg/v4-728px-Play-Rock%2C-Paper%2C-Scissors-Step-6-Version-4.jpg.webp";
+scissor.srcset="https://www.wikihow.com/images/thumb/b/b2/Play-Rock%2C-Paper%2C-Scissors-Step-8-Version-4.jpg/v4-728px-Play-Rock%2C-Paper%2C-Scissors-Step-8-Version-4.jpg.webp";
+
+paper1.srcset="https://www.wikihow.com/images/thumb/4/49/Play-Rock%2C-Paper%2C-Scissors-Step-7-Version-4.jpg/v4-728px-Play-Rock%2C-Paper%2C-Scissors-Step-7-Version-4.jpg.webp";
+rock1.srcset="https://www.wikihow.com/images/thumb/1/1e/Play-Rock%2C-Paper%2C-Scissors-Step-6-Version-4.jpg/v4-728px-Play-Rock%2C-Paper%2C-Scissors-Step-6-Version-4.jpg.webp";
+scissor1.srcset="https://www.wikihow.com/images/thumb/b/b2/Play-Rock%2C-Paper%2C-Scissors-Step-8-Version-4.jpg/v4-728px-Play-Rock%2C-Paper%2C-Scissors-Step-8-Version-4.jpg.webp";
+
+//EVENTS HANDLING
+paper.classList.add('img-fluid')
+rock.classList.add('img-fluid')
+scissor.classList.add('img-fluid')
+paper1.classList.add('img-fluid','flip')
+rock1.classList.add('img-fluid','flip')
+scissor1.classList.add('img-fluid','flip')
+humanChoice.appendChild(paper);
+computerChoice.appendChild(rock1);
 //trigger rerender
 
 const rerender=()=>{
@@ -69,8 +91,18 @@ const playRound=(humanChoice,computerChoice)=>{
     const computer=parseInt(computerChoice);
     const diff= Math.abs(human-computer);
     let winner;
-    document.getElementById('humanChoice').textContent=choices[humanChoice];
-    document.getElementById('computerChoice').textContent=choices[computerChoice];
+     document.getElementById('humanChoice').innerHTML='';
+    if(humanChoice===0) document.getElementById('humanChoice').appendChild(paper);
+    if(humanChoice===1) document.getElementById('humanChoice').appendChild(scissor);
+    if(humanChoice===2) document.getElementById('humanChoice').appendChild(rock);
+    document.getElementById('computerChoice').innerHTML='';
+    if(computerChoice===0) document.getElementById('computerChoice').appendChild(paper1);
+    if(computerChoice===1) document.getElementById('computerChoice').appendChild(scissor1);
+    if(computerChoice===2) document.getElementById('computerChoice').appendChild(rock1);
+
+    
+    // document.getElementById('computerChoice').textContent=choices[computerChoice];
+    // document.getElementById('computerChoice').appendChild(paper);
     //WHEN THERE IS A TIE
     if(human===computer){
         console.log("This round  a tie");
