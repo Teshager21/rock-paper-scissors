@@ -44,9 +44,15 @@ const playGame=()=>{
         container.appendChild(result); 
         if(roundCounter==5){
             console.log(roundCounter,' ',humanScore,' ' ,computerScore); 
+            
+            let diff= humanScore-computerScore;
+            console.log(humanScore);       
+        if(diff==0) result.textContent=("THIS GAME IS A TIE")
+        if(diff>0) result.textContent=("YOU WON THE GAME!")
+        if(diff<0) result.textContent=("OOPS YOU LOST!")
             humanScore=0;
             computerScore=0;
-            roundCounter=0;  
+            roundCounter=0; 
         }
 
       }
