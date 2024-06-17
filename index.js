@@ -23,8 +23,10 @@ return Math.floor(Math.random()*3);
 
 const getHumanChoice=(e)=>{
     if( e.target.nodeName==='BUTTON'){
+        rerender();
         choice=choices.indexOf(e.target.textContent.toLowerCase());
        playGame();
+       
     }
 }
 
@@ -32,28 +34,8 @@ let choicesBtns= document.querySelector('.choices')
 choicesBtns.addEventListener('click',e=>{ getHumanChoice(e)});
 
 const playGame=()=>{
-      //DOM MANIPULATION
-      rerender(); 
-        playRound(choice,getComputerChoice());
-  
-    if(humanScore===computerScore && humanScore!==0){
-        console.log("Its a tie");
-        result.textContent="Its a tie";
-       
-
-    }else if(humanScore>computerScore){
-        console.log('You Won the Game!!!',`${humanScore} to ${computerScore}`)
-        result.textContent='You Won the Game!!!',`${humanScore} to ${computerScore}`;
-    }else {
-        console.log("Oops, You Lost",`${humanScore} to ${computerScore}`);
-        result.textContent="Oops, You Lost",`${humanScore} to ${computerScore}`;
-        
-    }
-
-   
-    container.appendChild(result);
-  
-   
+    playRound(choice,getComputerChoice());
+    container.appendChild(result);    
 }
 
 const playRound=(humanChoice,computerChoice)=>{
