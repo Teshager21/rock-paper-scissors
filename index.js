@@ -62,6 +62,8 @@ const playRound=(humanChoice,computerChoice)=>{
     const computer=parseInt(computerChoice);
     const diff= Math.abs(human-computer);
     let winner;
+    document.getElementById('humanChoice').textContent=choices[humanChoice];
+    document.getElementById('computerChoice').textContent=choices[computerChoice];
     //WHEN THERE IS A TIE
     if(human===computer){
         console.log("This round  a tie");
@@ -73,6 +75,8 @@ const playRound=(humanChoice,computerChoice)=>{
     if (winner===human){
         humanScore++;
         console.log("Dude, You Won this round! ",`${choices[human]} beats ${choices[computer]}`)
+      
+
         result.textContent=`Dude, You Won this round! ${choices[human]} beats ${choices[computer]}`
     } 
     if(winner===computer) {
