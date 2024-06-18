@@ -22,6 +22,14 @@ paper1.srcset="https://www.wikihow.com/images/thumb/4/49/Play-Rock%2C-Paper%2C-S
 rock1.srcset="https://www.wikihow.com/images/thumb/1/1e/Play-Rock%2C-Paper%2C-Scissors-Step-6-Version-4.jpg/v4-728px-Play-Rock%2C-Paper%2C-Scissors-Step-6-Version-4.jpg.webp";
 scissor1.srcset="https://www.wikihow.com/images/thumb/b/b2/Play-Rock%2C-Paper%2C-Scissors-Step-8-Version-4.jpg/v4-728px-Play-Rock%2C-Paper%2C-Scissors-Step-8-Version-4.jpg.webp";
 
+
+let tapping =document.createElement('img');
+tapping.srcset="https://www.wikihow.com/images/thumb/6/66/Play-Rock%2C-Paper%2C-Scissors-Step-3-Version-4.jpg/550px-nowatermark-Play-Rock%2C-Paper%2C-Scissors-Step-3-Version-4.jpg.webp";
+tapping.autoplay='true';
+// container.querySelector('.card-group').prepend(tapping);
+// container.querySelector('.card-group').classList.add('d-none');
+
+
 //EVENTS HANDLING
 paper.classList.add('img-fluid')
 rock.classList.add('img-fluid')
